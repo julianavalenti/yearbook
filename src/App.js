@@ -1,12 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
-import Header from './components/Header';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import About from "./components/pages/About";
+import Home from "./components/pages/Home";
+import Dashboard from "./components/pages/Dashboard";
+import Nav from "./components/Nav";
+import Student from "./components/pages/Students";
+import studentsData from './components/pages/Studentsdata';
 
 function App() {
   return (
-    
-      <Header/>
-   
+    <Router>
+      <div className="App">
+        <Nav />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/dashboard" element={<Dashboard studentData={studentsData} />} />
+          <Route path="/students/:symbol" element={<Student studentData={studentsData} />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
